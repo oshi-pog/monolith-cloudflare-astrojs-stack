@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 
 import { FeaturesCarousel } from "@/components/FeaturesCarousel";
+import { TechStackBanner } from "@/components/TechStackBanner";
 
 const features = [
     {
@@ -69,22 +70,26 @@ const features = [
 
 <Layout title="The Monolith Cloudflare Stack">
     <div
-        class="relative overflow-hidden min-h-screen bg-background selection:bg-primary/20"
+        class="relative overflow-hidden min-h-screen bg-background selection:bg-[#F68220]/20"
     >
-        <!-- Background Gradients -->
+        <!-- Background Gradients - Cloudflare Orange -->
         <div
-            class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-purple-500/10 rounded-[100%] blur-[100px] pointer-events-none"
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[#F68220]/10 rounded-[100%] blur-[100px] pointer-events-none"
+        >
+        </div>
+        <div
+            class="absolute top-20 right-0 w-[400px] h-[400px] bg-[#FF9A45]/5 rounded-[100%] blur-[80px] pointer-events-none"
         >
         </div>
 
         <div class="container mx-auto px-4 py-24 relative z-10">
             <!-- Hero Section -->
-            <div class="text-center max-w-5xl mx-auto mb-32">
+            <div class="text-center max-w-5xl mx-auto mb-16">
                 <div class="flex justify-center mb-8">
                     <Badge
                         variant="pill"
                         dot={true}
-                        className="text-sm px-4 py-1.5 backdrop-blur-md border border-white/10 shadow-lg"
+                        className="text-sm px-4 py-1.5 backdrop-blur-md border border-[#F68220]/20 shadow-lg bg-[#F68220]/10"
                     >
                         Production Ready Template
                     </Badge>
@@ -95,21 +100,33 @@ const features = [
                 >
                     The Monolith <br />
                     <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-[#F68220] to-[#FF9A45]"
                         >Cloudflare Stack</span
                     >
                 </h1>
 
                 <p
-                    class="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed"
+                    class="text-xl md:text-2xl text-muted-foreground mb-6 max-w-3xl mx-auto leading-relaxed"
                 >
-                    One codebase. Zero latency. Infinite scale. <br />
-                    Build full-stack applications on the edge with <span
-                        class="text-foreground font-semibold">Astro</span
-                    >, <span class="text-foreground font-semibold">Hono</span>, <span
-                        class="text-foreground font-semibold">tRPC</span
-                    >, and <span class="text-foreground font-semibold">D1</span
-                    >.
+                    One codebase. Zero latency. Infinite scale.
+                </p>
+
+                <!-- All packages from package.json -->
+                <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
+                    Build full-stack applications on the edge with
+                    <span class="text-[#F68220] font-semibold">Astro</span>,
+                    <span class="text-[#F68220] font-semibold">React 19</span>,
+                    <span class="text-[#F68220] font-semibold">Hono</span>,
+                    <span class="text-[#F68220] font-semibold">tRPC</span>,
+                    <span class="text-[#F68220] font-semibold">Drizzle ORM</span>,
+                    <span class="text-[#F68220] font-semibold">Cloudflare D1</span>,
+                    <span class="text-[#F68220] font-semibold">Better Auth</span>,
+                    <span class="text-[#F68220] font-semibold">Tailwind CSS v4</span>,
+                    <span class="text-[#F68220] font-semibold">shadcn/ui</span>,
+                    <span class="text-[#F68220] font-semibold">Zod</span>,
+                    <span class="text-[#F68220] font-semibold">TanStack Query</span>,
+                    <span class="text-[#F68220] font-semibold">Framer Motion</span>, and
+                    <span class="text-[#F68220] font-semibold">Lucide Icons</span>.
                 </p>
 
                 <div
@@ -122,7 +139,7 @@ const features = [
                     >
                         <Button
                             size="lg"
-                            className="h-14 px-8 text-lg gap-2 rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all"
+                            className="h-14 px-8 text-lg gap-2 rounded-full shadow-lg shadow-[#F68220]/20 hover:shadow-[#F68220]/40 transition-all cursor-pointer bg-[#F68220] hover:bg-[#E5740F] text-white"
                         >
                             <Github className="w-5 h-5" />
                             Clone Repository
@@ -132,7 +149,7 @@ const features = [
                         <Button
                             variant="outline"
                             size="lg"
-                            className="h-14 px-8 text-lg gap-2 rounded-full border-white/10 bg-white/5 hover:bg-white/10 backdrop-blur-sm"
+                            className="h-14 px-8 text-lg gap-2 rounded-full border-[#F68220]/20 bg-[#F68220]/5 hover:bg-[#F68220]/10 backdrop-blur-sm cursor-pointer"
                         >
                             Explore Features
                             <ArrowRight className="w-4 h-4" />
@@ -140,6 +157,9 @@ const features = [
                     </a>
                 </div>
             </div>
+
+            <!-- Tech Stack Banner -->
+            <TechStackBanner client:load />
 
             <!-- Features Carousel -->
             <div id="features" class="mb-32">
@@ -154,7 +174,7 @@ const features = [
 
             <!-- Philosophy Section -->
             <div
-                class="rounded-[2.5rem] bg-gradient-to-b from-secondary/30 to-background border border-white/5 p-8 md:p-16 mb-32 relative overflow-hidden"
+                class="rounded-[2.5rem] bg-gradient-to-b from-[#F68220]/5 to-background border border-[#F68220]/10 p-8 md:p-16 mb-32 relative overflow-hidden"
             >
                 <div
                     class="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px_32px]"
@@ -166,7 +186,7 @@ const features = [
                     <div>
                         <Badge
                             variant="outline"
-                            className="mb-6 border-blue-500/30 text-blue-400"
+                            className="mb-6 border-[#F68220]/30 text-[#F68220]"
                             >Architecture</Badge
                         >
                         <h2 class="text-4xl md:text-5xl font-bold mb-6">
@@ -185,14 +205,14 @@ const features = [
                                     href="https://developers.cloudflare.com/workers/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="text-blue-400 hover:text-blue-300 inline-flex items-center gap-1 underline underline-offset-2"
+                                    class="text-[#F68220] hover:text-[#FF9A45] inline-flex items-center gap-1 underline underline-offset-2"
                                 >Cloudflare Worker<ExternalLink className="w-3 h-3" /></a>. They share memory,
                                 types, and context.
                             </p>
                             <ul class="space-y-4 mt-8">
                                 <li class="flex items-center gap-3">
                                     <div
-                                        class="p-2 rounded-full bg-yellow-500/10 text-yellow-500"
+                                        class="p-2 rounded-full bg-[#F68220]/10 text-[#F68220]"
                                     >
                                         <Zap className="w-5 h-5" />
                                     </div>
@@ -203,7 +223,7 @@ const features = [
                                 </li>
                                 <li class="flex items-center gap-3">
                                     <div
-                                        class="p-2 rounded-full bg-blue-500/10 text-blue-500"
+                                        class="p-2 rounded-full bg-[#F68220]/10 text-[#F68220]"
                                     >
                                         <Code2 className="w-5 h-5" />
                                     </div>
@@ -213,7 +233,7 @@ const features = [
                                 </li>
                                 <li class="flex items-center gap-3">
                                     <div
-                                        class="p-2 rounded-full bg-green-500/10 text-green-500"
+                                        class="p-2 rounded-full bg-[#F68220]/10 text-[#F68220]"
                                     >
                                         <Server className="w-5 h-5" />
                                     </div>
@@ -224,11 +244,11 @@ const features = [
                     </div>
                     <div class="relative group">
                         <div
-                            class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"
+                            class="absolute -inset-1 bg-gradient-to-r from-[#F68220] to-[#FF9A45] rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"
                         >
                         </div>
                         <div
-                            class="relative bg-[#0d1117] border border-white/10 rounded-2xl p-6 shadow-2xl overflow-hidden"
+                            class="relative bg-[#0d1117] border border-[#F68220]/20 rounded-2xl p-6 shadow-2xl overflow-hidden"
                         >
                             <div class="flex gap-2 mb-4">
                                 <div class="w-3 h-3 rounded-full bg-red-500/20">
@@ -243,11 +263,11 @@ const features = [
                                 </div>
                             </div>
                             <pre
-                                class="text-sm font-mono text-gray-300 overflow-x-auto"><code><span class="text-purple-400">export</span> <span class="text-blue-400">const</span> <span class="text-yellow-400">appRouter</span> = <span class="text-blue-400">router</span>({`{`}
-  <span class="text-blue-400">greeting</span>: <span class="text-yellow-400">publicProcedure</span>
-    .<span class="text-blue-400">input</span>(<span class="text-green-400">z</span>.<span class="text-blue-400">object</span>({`{`} <span class="text-blue-400">name</span>: <span class="text-green-400">z</span>.<span class="text-blue-400">string</span>() {`}`}))
-    .<span class="text-blue-400">query</span>(({`{`} <span class="text-blue-400">input</span> {`}`}) => {`{`}
-      <span class="text-purple-400">return</span> {`{`} <span class="text-blue-400">text</span>: <span class="text-green-400">`Hello ${`{`}input.name{`}`}`</span> {`}`};
+                                class="text-sm font-mono text-gray-300 overflow-x-auto"><code><span class="text-purple-400">export</span> <span class="text-[#F68220]">const</span> <span class="text-yellow-400">appRouter</span> = <span class="text-[#F68220]">router</span>({`{`}
+  <span class="text-[#F68220]">greeting</span>: <span class="text-yellow-400">publicProcedure</span>
+    .<span class="text-[#F68220]">input</span>(<span class="text-green-400">z</span>.<span class="text-[#F68220]">object</span>({`{`} <span class="text-[#F68220]">name</span>: <span class="text-green-400">z</span>.<span class="text-[#F68220]">string</span>() {`}`}))
+    .<span class="text-[#F68220]">query</span>(({`{`} <span class="text-[#F68220]">input</span> {`}`}) => {`{`}
+      <span class="text-purple-400">return</span> {`{`} <span class="text-[#F68220]">text</span>: <span class="text-green-400">`Hello ${`{`}input.name{`}`}`</span> {`}`};
     {`}`}),
 {`}`});</code></pre>
                         </div>
@@ -258,7 +278,7 @@ const features = [
             <!-- CTA Section -->
             <div class="text-center relative">
                 <div
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-blue-500/10 rounded-[100%] blur-[80px] pointer-events-none"
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#F68220]/10 rounded-[100%] blur-[80px] pointer-events-none"
                 >
                 </div>
                 <h2 class="text-4xl md:text-5xl font-bold mb-8 relative z-10">
@@ -277,7 +297,7 @@ const features = [
                         <Button
                             variant="secondary"
                             size="lg"
-                            className="h-12 px-8 rounded-full"
+                            className="h-12 px-8 rounded-full cursor-pointer"
                         >
                             View Demo Auth
                         </Button>
@@ -287,7 +307,7 @@ const features = [
                         target="_blank"
                         rel="noreferrer"
                     >
-                        <Button size="lg" className="h-12 px-8 rounded-full">
+                        <Button size="lg" className="h-12 px-8 rounded-full cursor-pointer bg-[#F68220] hover:bg-[#E5740F] text-white">
                             Get the Template
                         </Button>
                     </a>
