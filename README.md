@@ -14,7 +14,7 @@ This is a **"Monolith on the Edge"** architecture — one codebase, one deployme
 | **API** | [tRPC](https://trpc.io) with explicit [Zod](https://zod.dev) validation |
 | **Auth** | [Better Auth](https://www.better-auth.com) (Email/Password + OAuth) |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com) + [shadcn/ui](https://ui.shadcn.com) |
-| **Runtime** | [Cloudflare Workers](https://workers.cloudflare.com) |
+| **Runtime** | [Cloudflare Workers ↗](https://developers.cloudflare.com/workers/) |
 
 ## Quick Start
 
@@ -281,7 +281,7 @@ Add to your Claude Code MCP configuration (`~/.claude/claude_desktop_config.json
 
 ## Why This Stack?
 
-1. **Zero Network Latency** — Frontend and backend in the same Cloudflare Worker
+1. **Zero Network Latency** — Frontend and backend in the same [Cloudflare Worker ↗](https://developers.cloudflare.com/workers/)
 2. **End-to-End Type Safety** — tRPC + Zod + TypeScript
 3. **Global Performance** — 300+ Cloudflare edge locations
 4. **Simple Architecture** — One codebase, one deployment
