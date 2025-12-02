@@ -3,20 +3,63 @@ import "@/styles/globals.css";
 
 interface Props {
     title: string;
+    description?: string;
+    image?: string;
     layout?: "single" | "two-grid" | "three-grid";
 }
 
-const { title, layout = "single" } = Astro.props;
+const {
+    title,
+    description = "Monolith Cloudflare Stack - Build full-stack applications on the edge with Astro, React, Hono, tRPC, and Cloudflare Workers.",
+    image = "/og-image.png",
+    layout = "single",
+} = Astro.props;
+
+// Get canonical URL
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Site name for OG
+const siteName = "Monolith Cloudflare Stack";
 ---
 
 <!doctype html>
 <html lang="en" class="dark">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Monolith Cloudflare Stack - Build full-stack applications on the edge" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
+
+        <!-- Primary Meta Tags -->
+        <title>{title}</title>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href={canonicalURL} />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+        <!-- Theme Color -->
+        <meta name="theme-color" content="#F68220" />
+        <meta name="msapplication-TileColor" content="#F68220" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, Astro.site)} />
+        <meta property="og:site_name" content={siteName} />
+        <meta property="og:locale" content="en_US" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={new URL(image, Astro.site)} />
 
         <!-- Distinctive Fonts: Clash Display for headings, Satoshi for body -->
         <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
@@ -25,7 +68,35 @@ const { title, layout = "single" } = Astro.props;
             rel="stylesheet"
         />
 
-        <title>{title}</title>
+        <!-- JSON-LD Structured Data -->
+        <script type="application/ld+json" set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": siteName,
+            "url": Astro.site,
+            "description": description,
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": `${Astro.site}?q={search_term_string}`
+                },
+                "query-input": "required name=search_term_string"
+            }
+        })} />
+        <script type="application/ld+json" set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": siteName,
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Cloudflare Workers",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "description": description
+        })} />
     </head>
     <body
         class="bg-background text-foreground min-h-screen antialiased"

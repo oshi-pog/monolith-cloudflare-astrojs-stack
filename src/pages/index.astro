@@ -27,6 +27,8 @@ import {
 
 import { FeaturesCarousel } from "@/components/FeaturesCarousel";
 import { TechStackBanner } from "@/components/TechStackBanner";
+import { CloudflareGlobe } from "@/components/CloudflareGlobe";
+import { SupportSection } from "@/components/SupportSection";
 
 const features = [
     {
@@ -81,80 +83,92 @@ const features = [
             class="absolute top-20 right-0 w-[400px] h-[400px] bg-[#FF9A45]/5 rounded-[100%] blur-[80px] pointer-events-none"
         >
         </div>
+        <!-- Right edge fade overlay (hero section only) -->
+        <div
+            class="absolute top-0 right-0 w-32 h-[700px] bg-gradient-to-l from-background to-transparent pointer-events-none z-20"
+        >
+        </div>
 
-        <div class="container mx-auto px-4 py-24 relative z-10">
+        <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
             <!-- Hero Section -->
-            <div class="text-center max-w-5xl mx-auto mb-16">
-                <div class="flex justify-center mb-8">
-                    <Badge
-                        variant="pill"
-                        dot={true}
-                        className="text-sm px-4 py-1.5 backdrop-blur-md border border-[#F68220]/20 shadow-lg bg-[#F68220]/10"
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-4 items-center mb-16 max-w-7xl mx-auto">
+                <!-- Left Column - Text Content -->
+                <div class="text-center lg:text-left order-2 lg:order-1">
+                    <h1
+                        class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white via-white/90 to-white/50"
                     >
-                        Production Ready Template
-                    </Badge>
+                        The Monolith <br />
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-[#F68220] to-[#FF9A45]"
+                            >Cloudflare Stack</span
+                        >
+                    </h1>
+
+                    <p
+                        class="text-xl md:text-2xl text-muted-foreground mb-4 leading-relaxed"
+                    >
+                        <span class="text-[#F68220]/80 font-medium">One</span> codebase. <span class="text-[#F68220]/80 font-medium">Zero</span> latency. <span class="text-[#F68220]/80 font-medium">Infinite</span> scale.
+                    </p>
+
+                    <!-- Tech stack summary -->
+                    <p
+                        class="text-sm md:text-base text-muted-foreground mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0"
+                    >
+                        Build full-stack applications on the edge with
+                        <span class="text-[#F68220]/80 font-medium">Astro</span>,
+                        <span class="text-[#F68220]/80 font-medium">React 19</span>,
+                        <span class="text-[#F68220]/80 font-medium">Hono</span>,
+                        <span class="text-[#F68220]/80 font-medium">tRPC</span>,
+                        <span class="text-[#F68220]/80 font-medium">Drizzle ORM</span>,
+                        <span class="text-[#F68220]/80 font-medium">Cloudflare D1</span>,
+                        <span class="text-[#F68220]/80 font-medium">Better Auth</span>,
+                        <span class="text-[#F68220]/80 font-medium">Tailwind CSS v4</span>,
+                        <span class="text-[#F68220]/80 font-medium">shadcn/ui</span>,
+                        <span class="text-[#F68220]/80 font-medium">Zod</span>,
+                        <span class="text-[#F68220]/80 font-medium">TanStack Query</span>,
+                        <span class="text-[#F68220]/80 font-medium">Framer Motion</span>, and
+                        <span class="text-[#F68220]/80 font-medium">Lucide Icons</span>.
+                    </p>
+
+                    <div
+                        class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
+                    >
+                        <a
+                            href="https://github.com/oshi-pog/monolith-cloudflare-astrojs-stack"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <Button
+                                size="lg"
+                                className="h-14 px-8 text-lg gap-2 rounded-full shadow-lg shadow-[#F68220]/20 hover:shadow-[#F68220]/40 transition-all cursor-pointer bg-[#F68220] hover:bg-[#E5740F] text-white"
+                            >
+                                <Github className="w-5 h-5" />
+                                Clone Repository
+                            </Button>
+                        </a>
+                        <a href="#features">
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="h-14 px-8 text-lg gap-2 rounded-full border-[#F68220]/20 bg-[#F68220]/5 hover:bg-[#F68220]/10 backdrop-blur-sm cursor-pointer"
+                            >
+                                Explore Features
+                                <ArrowRight className="w-4 h-4" />
+                            </Button>
+                        </a>
+                    </div>
                 </div>
 
-                <h1
-                    class="text-6xl md:text-8xl font-bold tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white via-white/90 to-white/50"
-                >
-                    The Monolith <br />
-                    <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-[#F68220] to-[#FF9A45]"
-                        >Cloudflare Stack</span
-                    >
-                </h1>
-
-                <p
-                    class="text-xl md:text-2xl text-muted-foreground mb-6 max-w-3xl mx-auto leading-relaxed"
-                >
-                    One codebase. Zero latency. Infinite scale.
-                </p>
-
-                <!-- All packages from package.json -->
-                <p class="text-base md:text-lg text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
-                    Build full-stack applications on the edge with
-                    <span class="text-[#F68220] font-semibold">Astro</span>,
-                    <span class="text-[#F68220] font-semibold">React 19</span>,
-                    <span class="text-[#F68220] font-semibold">Hono</span>,
-                    <span class="text-[#F68220] font-semibold">tRPC</span>,
-                    <span class="text-[#F68220] font-semibold">Drizzle ORM</span>,
-                    <span class="text-[#F68220] font-semibold">Cloudflare D1</span>,
-                    <span class="text-[#F68220] font-semibold">Better Auth</span>,
-                    <span class="text-[#F68220] font-semibold">Tailwind CSS v4</span>,
-                    <span class="text-[#F68220] font-semibold">shadcn/ui</span>,
-                    <span class="text-[#F68220] font-semibold">Zod</span>,
-                    <span class="text-[#F68220] font-semibold">TanStack Query</span>,
-                    <span class="text-[#F68220] font-semibold">Framer Motion</span>, and
-                    <span class="text-[#F68220] font-semibold">Lucide Icons</span>.
-                </p>
-
-                <div
-                    class="flex flex-col sm:flex-row gap-4 justify-center items-center"
-                >
-                    <a
-                        href="https://github.com/oshi-pog/monolith-cloudflare-astrojs-stack"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <Button
-                            size="lg"
-                            className="h-14 px-8 text-lg gap-2 rounded-full shadow-lg shadow-[#F68220]/20 hover:shadow-[#F68220]/40 transition-all cursor-pointer bg-[#F68220] hover:bg-[#E5740F] text-white"
-                        >
-                            <Github className="w-5 h-5" />
-                            Clone Repository
-                        </Button>
-                    </a>
-                    <a href="#features">
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="h-14 px-8 text-lg gap-2 rounded-full border-[#F68220]/20 bg-[#F68220]/5 hover:bg-[#F68220]/10 backdrop-blur-sm cursor-pointer"
-                        >
-                            Explore Features
-                            <ArrowRight className="w-4 h-4" />
-                        </Button>
-                    </a>
+                <!-- Right Column - Cloudflare Globe Animation -->
+                <div class="relative order-1 lg:order-2 flex justify-center lg:justify-end">
+                    <div class="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px]">
+                        <!-- Glow effect behind globe -->
+                        <div class="absolute inset-0 bg-[#F68220]/20 rounded-full blur-[60px] scale-75"></div>
+                        <CloudflareGlobe
+                            client:only="react"
+                            className="relative z-10 w-full h-full drop-shadow-[0_0_80px_rgba(246,130,32,0.3)]"
+                        />
+                    </div>
                 </div>
             </div>
 
@@ -206,8 +220,10 @@ const features = [
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="text-[#F68220] hover:text-[#FF9A45] inline-flex items-center gap-1 underline underline-offset-2"
-                                >Cloudflare Worker<ExternalLink className="w-3 h-3" /></a>. They share memory,
-                                types, and context.
+                                    >Cloudflare Worker<ExternalLink
+                                        className="w-3 h-3"
+                                    /></a
+                                >. They share memory, types, and context.
                             </p>
                             <ul class="space-y-4 mt-8">
                                 <li class="flex items-center gap-3">
@@ -307,12 +323,40 @@ const features = [
                         target="_blank"
                         rel="noreferrer"
                     >
-                        <Button size="lg" className="h-12 px-8 rounded-full cursor-pointer bg-[#F68220] hover:bg-[#E5740F] text-white">
+                        <Button
+                            size="lg"
+                            className="h-12 px-8 rounded-full cursor-pointer bg-[#F68220] hover:bg-[#E5740F] text-white"
+                        >
                             Get the Template
                         </Button>
                     </a>
                 </div>
             </div>
+
+            <!-- Support Section -->
+            <SupportSection client:load />
+
+            <!-- Footer -->
+            <footer class="mt-32 pt-8 border-t border-[#F68220]/10">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+                    <p>
+                        Globe animation by <a
+                            href="https://www.cloudflare.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-[#F68220] hover:text-[#FF9A45] transition-colors"
+                        >Cloudflare, Inc.</a>
+                    </p>
+                    <p>
+                        Released under the <a
+                            href="https://opensource.org/licenses/MIT"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-[#F68220] hover:text-[#FF9A45] transition-colors"
+                        >MIT License</a>
+                    </p>
+                </div>
+            </footer>
         </div>
     </div>
 </Layout>
