@@ -1,0 +1,82 @@
+/**
+ * Wrangler Configuration for Cloudflare Workers
+ *
+ * SETUP INSTRUCTIONS:
+ * 1. Create a D1 database: npx wrangler d1 create my-app-db
+ * 2. Copy the database_id from the output and paste it below
+ * 3. (Optional) Create KV namespace: npx wrangler kv namespace create KV
+ * 4. (Optional) Create R2 bucket: npx wrangler r2 bucket create my-app-assets
+ *
+ * @see https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "my-app",
+    "compatibility_date": "2024-11-01",
+    "compatibility_flags": [
+        "nodejs_compat"
+    ],
+    "pages_build_output_dir": "./dist",
+    "observability": {
+        "enabled": true
+    },
+
+    /**
+     * D1 Database (Required)
+     * Run: npx wrangler d1 create my-app-db
+     * Then paste the database_id below
+     */
+    "d1_databases": [
+        {
+            "binding": "DB",
+            "database_name": "my-app-db",
+            "database_id": "YOUR_D1_DATABASE_ID",
+            "migrations_dir": "drizzle"
+        }
+    ],
+
+    /**
+     * KV Namespace (Optional - uncomment to enable)
+     * Run: npx wrangler kv namespace create KV
+     * Then paste the id below
+     */
+    // "kv_namespaces": [
+    //     {
+    //         "binding": "KV",
+    //         "id": "YOUR_KV_NAMESPACE_ID"
+    //     }
+    // ],
+
+    /**
+     * R2 Bucket (Optional - uncomment to enable)
+     * Run: npx wrangler r2 bucket create my-app-assets
+     * Then update the bucket_name below
+     */
+    // "r2_buckets": [
+    //     {
+    //         "binding": "BUCKET",
+    //         "bucket_name": "my-app-assets"
+    //     }
+    // ],
+
+    /**
+     * Durable Objects (Optional - uncomment to enable)
+     * Requires exporting a DO class from your worker
+     */
+    // "durable_objects": {
+    //     "bindings": [
+    //         {
+    //             "name": "COUNTER",
+    //             "class_name": "Counter"
+    //         }
+    //     ]
+    // },
+    // "migrations": [
+    //     {
+    //         "tag": "v1",
+    //         "new_classes": [
+    //             "Counter"
+    //         ]
+    //     }
+    // ]
+}
